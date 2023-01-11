@@ -1,5 +1,14 @@
+/*
 import { endAdventure, haveAdventures } from '..';
 import { askQuestion, clear, print } from '../console';
+*/
+
+
+
+import { endAdventure, haveAdventures } from '..';
+import { askQuestion, clear, print } from '../console';
+import { selectDistracted } from './7_distracted';
+
 
 // This is a very unusual type setup. It's pobably not a great idea in the real world to nest so many properties
 // with the exact same name. But in Wonderland, this sort of thing is normal, so we've just got to find a way through it...
@@ -33,18 +42,25 @@ export function wakeUp(): void {
 		print(
 			'✅ CONGRATULATIONS! You successfully made it through Wonderland! 🥳'
 		);
+		print ('After so many adventures, it is time to get distracted');
+		return askQuestion('Press ENTER to continue! ', selectDistracted);
 
-		return askQuestion(
-			'Press ENTER to re-enter Wonderland! ',
-			haveAdventures
-		);
+		
 	} else {
 		print('You are unable to wake up! 😱');
 		return endAdventure();
 	}
 }
-
 function tryToWakeUp(): WakeUp {
 	// 👉 FIXME ❌
-	return {};
+	//return {};
+	return {
+		wake: {
+			wake: {
+				wake: {
+					canWake: 'Yes',
+					},
+				},
+			},
+		};
 }

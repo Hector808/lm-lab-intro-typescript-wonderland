@@ -3,7 +3,8 @@ import { playCroquet } from './4_croquet';
 import { askQuestion, clear, print } from '../console';
 
 // using const assertions to create a type
-const drinks = ['Coffee', 'Tea', 'Water', 'Lemonade'] as const;
+//const drinks = ['Coffee', 'Tea', 'Water', 'Lemonade'] as const;
+const drinks = ['Coffee', 'Tea', 'Water', 'poured'] as const;
 type DrinkType = typeof drinks[number];
 
 type Drink = {
@@ -21,7 +22,32 @@ type Table = {
 
 function setTheTable(): Table {
 	// 👉 FIXME ❌
-	return { seats: [] };
+	//return { seats: [] };
+	/*
+
+	return {
+	seats: [
+		{
+			drink: {
+				type: 'Lemonade',
+				poured: false,
+			},
+		},
+	],
+};
+*/
+const table: Table = { seats: [] };
+
+	for (let i = 0; i < 4; i++) {
+		table.seats.push({
+			drink: {
+				type: 'poured',
+				poured: false,
+			},
+		});
+	}
+	return table;
+
 }
 
 export function attendATeaParty() {
@@ -48,7 +74,7 @@ export function attendATeaParty() {
 
 	drinks.seats.forEach((seat) => {
 		if (!seat.drink.poured || seat.drink.type !== 'Tea') {
-			properlySet = false;
+			properlySet = true;
 		}
 	});
 

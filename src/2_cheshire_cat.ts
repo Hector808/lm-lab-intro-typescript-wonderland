@@ -13,7 +13,8 @@ type FacialExpression = typeof expressions[number];
 
 class CheshireCat {
 	name: string = 'The Cheshire Cat';
-	expression: FacialExpression = expressions[0];
+	//expression: FacialExpression = expressions[0];
+	expression: FacialExpression = expressions[2];
 }
 
 export function meetTheCheshireCat(): void {
